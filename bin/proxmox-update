@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Tonton Jo - 2022
-# Join me on Youtube: https://www.youtube.com/c/tontonjo
+# sergiodesa - 2022
+
 
 # Version:
 # 1.0: Initial file version
@@ -13,6 +13,6 @@
 
 proxmox-update() {
 echo "- Retreiving ressources"
-wget -qO - https://raw.githubusercontent.com/Tontonjo/proxmox_toolbox/main/proxmox_toolbox.sh | bash /dev/stdin -u
+wget -qO - https://raw.githubusercontent.com/sergiodesa/proxmox_toolbox/main/proxmox_toolbox.sh | bash /dev/stdin -u
 }
 proxmox-update "$@"; exit

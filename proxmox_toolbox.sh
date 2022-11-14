@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Tonton Jo - 2022
-# Join me on Youtube: https://www.youtube.com/c/tontonjo
+# sergiodesa - 2022
 
 # This little tool is aimed to set some default configurations up and running in not time
 
@@ -14,7 +13,7 @@
 
 # USAGE
 # You can use this tool either with:
-# wget -qO proxmox_toolbox.sh https://raw.githubusercontent.com/Tontonjo/proxmox_toolbox/main/proxmox_toolbox.sh
+# wget -qO proxmox_toolbox.sh https://raw.githubusercontent.com/sergiodesa/proxmox_toolbox/main/proxmox_toolbox.sh
 # bash proxmox_toolbox.sh
 
 # SOURCES:
@@ -106,7 +105,7 @@ update () {
 		# Check if the /usr/bin/proxmox-update entry for update is already created
 		if ! grep -Fq "$updatebinversion" /usr/bin/proxmox-update; then
 		    	echo "- Downloading / Updating update binary to version $updatebinversion"
-			wget -qO "/usr/bin/proxmox-update" https://raw.githubusercontent.com/Tontonjo/proxmox_toolbox/main/bin/proxmox-update && chmod +x "/usr/bin/proxmox-update"
+			wget -qO "/usr/bin/proxmox-update" https://raw.githubusercontent.com/sergiodesa/proxmox_toolbox/main/bin/proxmox-update && chmod +x "/usr/bin/proxmox-update"
 			update
 		else
 			echo "- Updating System"
@@ -129,7 +128,7 @@ update () {
 		fi
 }
 snmpconfig() {
-wget -qO /etc/snmp/snmpd.conf https://github.com/Tontonjo/proxmox_toolbox/raw/main/snmp/snmpd.conf
+wget -qO /etc/snmp/snmpd.conf https://github.com/sergiodesa/proxmox_toolbox/raw/main/snmp/snmpd.conf
 }
 
 getcontentcheck() {
@@ -156,8 +155,7 @@ main_menu(){
     RED_TEXT=`echo "\033[31m"`
     ENTER_LINE=`echo "\033[33m"`
     echo -e "${MENU}****************** Proxmox Toolbox **********************${NORMAL}"
-    echo -e "${MENU}*********** Tonton Jo - 2022 - Version $version ************${NORMAL}"
-    echo -e "${MENU}********** https://www.youtube.com/c/tontonjo **********${NORMAL}"
+    echo -e "${MENU}*********** sergiodesa - 2022 - Version $version ************${NORMAL}"
     echo " "
     echo -e "${MENU}**${NUMBER} 1)${MENU} No-subscription Sources Configuration ${NORMAL}"
     echo -e "${MENU}**${NUMBER} 2)${MENU} Update host & create proxmox-update command ${NORMAL}"
@@ -267,7 +265,7 @@ main_menu(){
 				else
 					echo "- git already installed"
 				fi
-				git clone -q https://github.com/Tontonjo/proxmox_toolbox.git
+				git clone -q https://github.com/sergiodesa/proxmox_toolbox.git
 					if [ -d "$pve_log_folder" ]; then
 						echo "- Host is a PVE Host"	
 						# Put filter.d/proxmox-backup-server.conf contents to /etc/fail2ban/filter.d/proxmox-backup-server.conf
@@ -416,7 +414,7 @@ main_menu(){
 				else
 					echo "- git already installed"
 				fi
-				git clone -q https://github.com/Tontonjo/proxmox_toolbox.git
+				git clone -q https://github.com/sergiodesa/proxmox_toolbox.git
 				if [ $(dpkg-query -W -f='${Status}' snmpd 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
 					apt-get install -y snmpd libsnmp-dev;
 				else
@@ -429,7 +427,7 @@ main_menu(){
 					cp -n /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.backup
 					snmpconfig
 					getcontentcheck
-					echo "- Read only community name? (ex: ro_tontonjo): "
+					echo "- Read only community name? (ex: ro_sergiodesa): "
 					read rocommunity
 					echo "- Allowed subnet? Enter for none (x.x.x.x/xx): "
 					read allowedsubnet
@@ -501,8 +499,7 @@ mail_menu(){
 			RED_TEXT=`echo "\033[31m"`
 			ENTER_LINE=`echo "\033[33m"`
   			echo -e "${MENU}************* Ez Proxmox Mail Configurator ***************${NORMAL}"
-			echo -e "${MENU}********** Tonton Jo - 2022 - Version $version *****${NORMAL}"
-   			echo -e "${MENU}********* https://www.youtube.com/c/tontonjo **********${NORMAL}"
+			echo -e "${MENU}********** sergiodesa - 2022 - Version $version *****${NORMAL}"
 			echo " "
 			echo -e "${MENU}**${NUMBER} 1)${MENU} Configure ${NORMAL}"
 			echo -e "${MENU}**${NUMBER} 2)${MENU} Test ${NORMAL}"
@@ -727,8 +724,7 @@ backup_menu(){
 			RED_TEXT=`echo "\033[31m"`
 			ENTER_LINE=`echo "\033[33m"`
   			echo -e "${MENU}**************** Proxmxo backup and restore ***************${NORMAL}"
-			echo -e "${MENU}********** Tonton Jo - 2022 - Version $version *****${NORMAL}"
-   			echo -e "${MENU}********** https://www.youtube.com/c/tontonjo **********${NORMAL}"
+			echo -e "${MENU}********** sergiodesa - 2022 - Version $version *****${NORMAL}"
 			echo " "
 			echo -e "${MENU}**${NUMBER} 1)${MENU} Backup configuration ${NORMAL}"
 			echo -e "${MENU}**${NUMBER} 2)${MENU} Restore configuration ${NORMAL}"
