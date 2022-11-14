@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Tonton Jo - 2021 - 2022
 # sergiodesa - 2022
 
 # This little tool is aimed to set some default configurations up and running in not time
